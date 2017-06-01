@@ -18,6 +18,8 @@ cp /home/ubuntu/mysql.cnf /etc/mysql/conf.d/
 systemctl start mysql.service
 
 
+pass=root
+
 mysql -uroot -p$pass -e "CREATE DATABASE confluence"
 mysql -uroot -p$pass -e "GRANT ALL PRIVILEGES ON confluence.* TO 'confluenceuser'@'localhost' IDENTIFIED BY 'confluencepass'"
 
