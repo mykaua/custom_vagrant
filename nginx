@@ -6,15 +6,13 @@ server {
 server {
 
     listen 443;
-    server_name conf.myka.pp.ua;
+    server_name conf.example.com;
 
     ssl_certificate           /etc/nginx/ssl/nginx.crt;
     ssl_certificate_key       /etc/nginx/ssl/nginx.key;
 
     ssl on;
     
-#    access_log            /var/log/nginx/jenkins.access.log;
-
     location / {
 
       proxy_set_header        Host $host;
@@ -26,6 +24,6 @@ server {
       proxy_pass          http://localhost:8090;
       proxy_read_timeout  90;
 
-      proxy_redirect      http://localhost:8090 https://conf.myka.pp.ua;
+      proxy_redirect      http://localhost:8090 https://conf.example.com;
     }
   }
