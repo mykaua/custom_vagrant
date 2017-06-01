@@ -6,24 +6,17 @@ server {
 server {
 
     listen 443;
-    server_name conf.example.com;
+    #server_name conf.myka.pp.ua;
 
     ssl_certificate           /etc/nginx/ssl/nginx.crt;
     ssl_certificate_key       /etc/nginx/ssl/nginx.key;
 
     ssl on;
-    
-    location / {
 
-      proxy_set_header        Host $host;
-      proxy_set_header        X-Real-IP $remote_addr;
-      proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header        X-Forwarded-Proto $scheme;
 
-      # Fix the “It appears that your reverse proxy set up is broken" error.
-      proxy_pass          http://localhost:8090;
-      proxy_read_timeout  90;
-
-      proxy_redirect      http://localhost:8090 https://conf.example.com;
-    }
+location / {
+        proxy_set_header X-forwarded-Host $host;
+        proxy_set_header X-forwarded-Server $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://localhost:8090;
   }
