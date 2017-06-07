@@ -1,0 +1,9 @@
+you can build the docker contacting from Dockerfile
+
+Build image:
+docker build -t confluence .
+
+
+Create docker container:
+
+docker run -ti -p 8090:8090 --name conf confluence /bin/bash
