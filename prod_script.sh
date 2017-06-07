@@ -28,7 +28,7 @@ mysql -uroot -p$pass -e "FLUSH PRIVILEGES;"
 
 # download confluence and install
 wget https://www.atlassian.com/software/confluence/downloads/binary/atlassian-confluence-6.2.1-x64.bin
-chmod a+x /home/ubuntu/atlassian-confluence-X.X.X-x64.bin
+chmod a+x /home/ubuntu/atlassian-confluence-6.2.1-x64.bin
 sh atlassian-confluence-6.2.1-x64.bin <<-EOF
 o
 1
@@ -43,7 +43,7 @@ tar -zxvf mysql-connector-java-5.1.42.tar.gz
 # copy JDBC to conflunece directory
 cp /home/ubuntu/mysql-connector-java-5.1.42/mysql-connector-java-5.1.42-bin.jar /opt/atlassian/confluence/confluence/WEB-INF/lib/
 
-#configration tomcat for nginx 
+#configration tomcat for nginx
 
 cp /home/ubuntu/server.xml /opt/atlassian/confluence/conf/
 
